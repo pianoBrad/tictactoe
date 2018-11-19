@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerView" customModule="tictacto" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="91s-ga-wky"/>
+                <outlet property="gameStatusLabel" destination="rBY-0L-dwV" id="phh-hi-QGF"/>
+                <outlet property="playerOBtn" destination="BhD-oT-QX2" id="h1B-Zl-F45"/>
+                <outlet property="playerXBtn" destination="xlr-82-Vrv" id="Uoc-e5-qFH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ap-lj-anY" userLabel="PlayerStatus View">
+                    <rect key="frame" x="47" y="80" width="281" height="40"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlr-82-Vrv" userLabel="PlayerX View" customClass="PlayerButton" customModule="tictacto" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="130.5" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isActive" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhD-oT-QX2" userLabel="PlayerO View" customClass="PlayerButton" customModule="tictacto" customModuleProvider="target">
+                            <rect key="frame" x="140.5" y="0.0" width="130.5" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isActive" value="NO"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="playerLabel" value="O"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="xlr-82-Vrv" firstAttribute="centerY" secondItem="2ap-lj-anY" secondAttribute="centerY" id="Pc4-7K-DlV"/>
+                        <constraint firstItem="xlr-82-Vrv" firstAttribute="leading" secondItem="2ap-lj-anY" secondAttribute="leading" id="Q0y-37-fVL"/>
+                        <constraint firstItem="BhD-oT-QX2" firstAttribute="centerY" secondItem="xlr-82-Vrv" secondAttribute="centerY" id="VNx-O8-voX"/>
+                        <constraint firstItem="xlr-82-Vrv" firstAttribute="height" secondItem="2ap-lj-anY" secondAttribute="height" id="ZWY-C6-foF"/>
+                        <constraint firstAttribute="height" constant="40" id="cKD-67-fw7"/>
+                        <constraint firstItem="BhD-oT-QX2" firstAttribute="height" secondItem="xlr-82-Vrv" secondAttribute="height" id="eZW-xu-v9I"/>
+                        <constraint firstAttribute="trailing" secondItem="BhD-oT-QX2" secondAttribute="trailing" constant="10" id="gCQ-nf-7gi"/>
+                        <constraint firstItem="BhD-oT-QX2" firstAttribute="width" secondItem="xlr-82-Vrv" secondAttribute="width" id="hhu-Qq-9Uh"/>
+                        <constraint firstItem="xlr-82-Vrv" firstAttribute="width" secondItem="2ap-lj-anY" secondAttribute="width" multiplier="1:2" constant="-10" id="p6F-eQ-cVS"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start game or select player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBY-0L-dwV" userLabel="GameStatus Label" customClass="GameStatusLabel" customModule="tictacto" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="120" width="375" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="gmO-Ka-r79"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="rBY-0L-dwV" secondAttribute="trailing" id="2b2-JM-D8t"/>
+                <constraint firstItem="2ap-lj-anY" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="3:4" id="9br-ol-8JX"/>
+                <constraint firstItem="rBY-0L-dwV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Y2P-RI-d0H"/>
+                <constraint firstAttribute="bottom" secondItem="rBY-0L-dwV" secondAttribute="bottom" id="dCS-lE-k33"/>
+                <constraint firstItem="2ap-lj-anY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hlb-Li-onY"/>
+                <constraint firstAttribute="bottom" secondItem="2ap-lj-anY" secondAttribute="bottom" constant="40" id="shJ-ZB-2Ws"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

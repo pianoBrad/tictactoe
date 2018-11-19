@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerButton" customModule="tictacto" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Y1F-Ot-pt8"/>
+                <outlet property="playerNameLabel" destination="f13-Me-4yn" id="67n-Gr-KsA"/>
+                <outlet property="playerScoreLabel" destination="lBY-yo-9VR" id="HeN-t9-ha4"/>
+                <outlet property="playerTurnIndicator" destination="wZP-aH-6wW" id="CyW-wW-bpf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZP-aH-6wW" userLabel="Player Turn Indicator">
+                    <rect key="frame" x="0.0" y="47" width="150" height="3"/>
+                    <color key="backgroundColor" red="0.14901960784313725" green="0.73725490196078436" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="3" id="mAL-9k-bE5"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f13-Me-4yn">
+                    <rect key="frame" x="5" y="0.0" width="40" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Mu9-xt-Ec3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBY-yo-9VR">
+                    <rect key="frame" x="105" y="0.0" width="40" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Lj3-15-3Aa"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="Nud-td-7zI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="f13-Me-4yn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="0Al-z9-Ijs"/>
+                <constraint firstItem="f13-Me-4yn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HEk-rC-VZQ"/>
+                <constraint firstAttribute="trailing" secondItem="wZP-aH-6wW" secondAttribute="trailing" id="Hz2-j8-7wv"/>
+                <constraint firstAttribute="trailing" secondItem="lBY-yo-9VR" secondAttribute="trailing" constant="5" id="MXg-fi-pXJ"/>
+                <constraint firstItem="f13-Me-4yn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="USf-m2-oAx"/>
+                <constraint firstItem="wZP-aH-6wW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WF3-TN-MmH"/>
+                <constraint firstAttribute="bottom" secondItem="wZP-aH-6wW" secondAttribute="bottom" id="ZY4-RW-h9k"/>
+                <constraint firstItem="lBY-yo-9VR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hEz-Gk-UVe"/>
+                <constraint firstItem="lBY-yo-9VR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mTM-WT-k9R"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

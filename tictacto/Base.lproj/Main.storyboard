@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tic Tac ToeVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="TicTacToeVC" customModule="tictacto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrz-rs-kFH" userLabel="Player View" customClass="PlayerView" customModule="tictacto" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="162.33333333333334"/>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLX-ft-3x4" userLabel="Game Board" customClass="GameBoard" customModule="tictacto" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="162.33333333333334" width="375" height="480.33333333333326"/>
+                                <color key="backgroundColor" red="0.14901960784313725" green="0.73725490196078436" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4GH-M7-OMM" userLabel="Control Panel" customClass="ControlPanel" customModule="tictacto" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="642.66666666666663" width="375" height="135.33333333333337"/>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Zrz-rs-kFH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="17T-IM-VP5"/>
+                            <constraint firstItem="4GH-M7-OMM" firstAttribute="top" secondItem="oLX-ft-3x4" secondAttribute="bottom" id="5W2-eF-pzK"/>
+                            <constraint firstItem="4GH-M7-OMM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9Gs-8G-ljB"/>
+                            <constraint firstItem="4GH-M7-OMM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GFj-iV-7mX"/>
+                            <constraint firstItem="oLX-ft-3x4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="QBV-MQ-AvL"/>
+                            <constraint firstItem="4GH-M7-OMM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:6" id="WXE-Wj-LaD"/>
+                            <constraint firstItem="Zrz-rs-kFH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XAL-ex-xsw"/>
+                            <constraint firstItem="Zrz-rs-kFH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="f72-Je-TAF"/>
+                            <constraint firstItem="oLX-ft-3x4" firstAttribute="top" secondItem="Zrz-rs-kFH" secondAttribute="bottom" id="l3D-9M-plo"/>
+                            <constraint firstItem="4GH-M7-OMM" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="mEF-s2-E07"/>
+                            <constraint firstItem="oLX-ft-3x4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="rPt-Fg-nyZ"/>
+                            <constraint firstItem="Zrz-rs-kFH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:5" id="tve-XN-pGE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="controlPanel" destination="4GH-M7-OMM" id="0jM-Bm-OzF"/>
+                        <outlet property="gameBoard" destination="oLX-ft-3x4" id="kez-8a-bpY"/>
+                        <outlet property="playerView" destination="Zrz-rs-kFH" id="CqI-QI-XEy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="132.26600985221674"/>
+        </scene>
+    </scenes>
+</document>

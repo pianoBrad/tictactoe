@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultsView" customModule="tictactoe" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="rn1-Rx-w1f"/>
+                <outlet property="playerLabel" destination="6Gt-Th-Bdc" id="eQr-eI-p3s"/>
+                <outlet property="textLabel" destination="WlQ-K1-LdL" id="qKE-dE-lLB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="6Gt-Th-Bdc" userLabel="PlayerLabel">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="281.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WINNER!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WlQ-K1-LdL" userLabel="TextLabel">
+                    <rect key="frame" x="0.0" y="281.5" width="375" height="93.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="WlQ-K1-LdL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BoJ-Lf-2Nl"/>
+                <constraint firstItem="6Gt-Th-Bdc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="G9I-U3-aer"/>
+                <constraint firstItem="6Gt-Th-Bdc" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ZAC-Kz-8mD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WlQ-K1-LdL" secondAttribute="trailing" id="bJW-T8-A1g"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="WlQ-K1-LdL" secondAttribute="bottom" id="enJ-ix-Qob"/>
+                <constraint firstItem="6Gt-Th-Bdc" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="3:4" id="f8Y-yH-vs1"/>
+                <constraint firstItem="6Gt-Th-Bdc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="fKT-nQ-1RZ"/>
+                <constraint firstItem="WlQ-K1-LdL" firstAttribute="top" secondItem="6Gt-Th-Bdc" secondAttribute="bottom" id="tA2-xo-CA8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
+        </view>
+    </objects>
+</document>
