@@ -173,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				2D6D792521715209004B061B /* views */,
-				2D6D7922217151CA004B061B /* navigation */,
 				2D6D791F21715056004B061B /* buttons */,
 				2D6D791C21714F37004B061B /* extensions */,
 				2DC5813F218B5647008FCA17 /* game_data */,
@@ -199,13 +198,6 @@
 				69F49A63217FC9DF00BE3C5E /* PlayerButton.xib */,
 			);
 			path = buttons;
-			sourceTree = "<group>";
-		};
-		2D6D7922217151CA004B061B /* navigation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = navigation;
 			sourceTree = "<group>";
 		};
 		2D6D792521715209004B061B /* views */ = {
