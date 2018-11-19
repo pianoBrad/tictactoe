@@ -34,7 +34,6 @@ class TicTacToeVC: UIViewController
     {
         playerView.end()
         gameBoard.end()
-        controlPanel.end()
     }
 }
 

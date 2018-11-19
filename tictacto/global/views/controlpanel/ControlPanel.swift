@@ -25,14 +25,16 @@ class ControlPanel: GameSectionView
     weak var panelDelegate : ControlPanelDelegate?
 
     /** Overrides **/
-    override func end()
-    {
-        self.checkRestartBtnTitleShouldChange()
-    }
-    
     override func reset()
     {
-        self.checkRestartBtnTitleShouldChange()
+        guard
+            self.restartBtn.title(for: .normal)?.range(of: "CLEAR") == nil
+        else
+        {
+            return
+        }
+        
+        self.restartBtn.setTitle("CLEAR SCORES", for: .normal)
     }
     
     /** Custom Method **/
@@ -53,7 +55,7 @@ class ControlPanel: GameSectionView
     
     func checkShouldMarkGameInProgress()
     {
-        // Game is in progress, make sure restart btn says round, not game
+        // Game is in progress, make sure restart btn says round
         guard
             self.restartBtn.title(for: .normal)?.range(of: "ROUND") == nil
         else
@@ -61,31 +63,7 @@ class ControlPanel: GameSectionView
             return
         }
         
-        self.checkRestartBtnTitleShouldChange()
-    }
-    
-    func checkRestartBtnTitleShouldChange()
-    {
-        let curBtnTitle = self.restartBtn.title(for: .normal)
-        let gameScope = curBtnTitle?.range(of: "ROUND") != nil ? "GAME" : "ROUND"
-        let scoresAboveZero = currentGame.getScore().filter {$0 > 0}
-        
-        guard
-            "RESTART \(gameScope)" != self.restartBtn.title(for: .normal)
-        else
-        {
-            return
-        }
-                
-        if scoresAboveZero.isEmpty { return }
-        else if currentGame.winner == nil
-        {
-            self.restartBtn.setTitle("RESTART \(gameScope)", for: .normal)
-        }
-        else
-        {
-            self.restartBtn.setTitle("START NEW ROUND", for: .normal)
-        }
+        self.restartBtn.setTitle("RESTART ROUND", for: .normal)
     }
     
     func pause()
@@ -95,7 +73,15 @@ class ControlPanel: GameSectionView
     
     func unPause()
     {
+        guard
+            !self.shouldRespond
+        else
+        {
+            return
+        }
+        
         self.shouldRespond = true
+        self.restartBtn.setTitle("START NEW ROUND", for: .normal)
     }
 }
 

@@ -23,7 +23,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQf-gj-hvE" userLabel="Restart Btn" customClass="ControlPanelBtn" customModule="tictactoe" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="RESTART GAME">
+                    <state key="normal" title="CLEAR SCORES">
                         <color key="titleColor" red="0.14901960784313725" green="0.73725490196078436" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
