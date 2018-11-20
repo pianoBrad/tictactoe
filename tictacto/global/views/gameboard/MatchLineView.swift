@@ -21,8 +21,6 @@ class MatchLineView: UIView
     var firstMatchingBtn : GamePieceButton?
     var middleMatchingBtn : GamePieceButton?
     var frameCenterPoint : CGPoint = CGPoint(x: 0, y: 0)
-    var widthConst : NSLayoutConstraint?
-    var heightConst : NSLayoutConstraint?
     let lineAnimator = UIViewPropertyAnimator(duration: 0.4, curve: .easeInOut)
     
     weak var lineDelegate : MatchLineViewDelegate?
@@ -36,9 +34,7 @@ class MatchLineView: UIView
     convenience init(with matchType: String, for row: [GamePieceButton])
     {
         self.init(frame: .zero)
-        //self.backgroundColor = .blue
         self.backgroundColor = .clear
-        //self.alpha = 0.5
         self.firstMatchingBtn = row.first
         self.middleMatchingBtn = row.middle
         self.matchType = matchType        
@@ -46,11 +42,15 @@ class MatchLineView: UIView
     
     override func didMoveToSuperview()
     {
-        self.setupStartingConstraints()
+        if let startFrame = getFrame(for: matchType, isFinalPosition: false)
+        {
+            self.frame = startFrame
+            lineDelegate?.lineAddedToSuperView(self)
+        }
     }
     
     /** Custom methods **/
-    func getLineFrameForWin() -> CGRect?
+    public func getLineFrameForWin() -> CGRect?
     {
         var newRect = CGRect(
             x: 0,
@@ -128,68 +128,10 @@ class MatchLineView: UIView
         aPath.stroke()
     }
     
-    func setupStartingConstraints()
-    {
-        guard
-            let parent = self.superview
-        else
-        {
-            return
-        }
-        
-        var widthConstant : CGFloat = 0
-        var heightConstant : CGFloat = 0
-        
-        switch self.matchType
-        {
-        case "vertical":
-            widthConstant = parent.frame.height
-            break
-        case "horizontal" :
-            heightConstant = parent.frame.width
-            break
-        default: // diagonal
-            break
-        }
-        
-        self.translatesAutoresizingMaskIntoConstraints = false
-        let topConst = NSLayoutConstraint(
-            item: self, attribute: .top,
-            relatedBy: .equal, toItem: parent, attribute: .top,
-            multiplier: 1, constant: 0
-        )
-        let leadingConst = NSLayoutConstraint(
-            item: self, attribute: .leading,
-            relatedBy: .equal, toItem: parent, attribute: .leading,
-            multiplier: 1, constant: 0
-        )
-        let wConst = NSLayoutConstraint(
-            item: self, attribute: .width,
-            relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
-            multiplier: 1, constant: widthConstant
-        )
-        let hConst = NSLayoutConstraint(
-            item: self, attribute: .height,
-            relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
-            multiplier: 1, constant: heightConstant
-        )
-        
-        self.widthConst = wConst
-        self.heightConst = hConst
-        parent.addConstraints([
-            topConst, leadingConst, wConst, hConst
-        ])
-        parent.layoutIfNeeded()
-        
-        lineDelegate?.lineAddedToSuperView(self)
-    }
-    
     func animateLine()
     {
         guard
-            let parent = self.superview,
-            let wConst = self.widthConst,
-            let hConst = self.heightConst
+            let endFrame = getFrame(for: self.matchType, isFinalPosition: true)
         else
         {
             return
@@ -197,20 +139,7 @@ class MatchLineView: UIView
         
         self.lineAnimator.addAnimations
         {
-            switch self.matchType
-            {
-            case "vertical":
-                hConst.constant = parent.frame.height
-                break
-            case "horizontal":
-                wConst.constant = parent.frame.width
-                break
-            default: // diagonal
-                hConst.constant = parent.frame.height
-                wConst.constant = parent.frame.width
-            }
-            
-            parent.layoutIfNeeded()
+            self.frame = endFrame
         }
         
         self.lineAnimator.addCompletion
@@ -221,5 +150,46 @@ class MatchLineView: UIView
         }
         
         self.lineAnimator.startAnimation()
+    }
+    
+    func getFrame(for direction: String, isFinalPosition: Bool = false) -> CGRect?
+    {
+        guard
+            let superView = self.superview,
+            let firstBtn = self.firstMatchingBtn,
+            let middleBtn = self.middleMatchingBtn
+        else
+        {
+            return nil
+        }
+        
+        var originX : CGFloat = 0
+        var originY : CGFloat = 0
+        var frameW : CGFloat = 0
+        var frameH : CGFloat = 0
+        
+        switch direction
+        {
+        case "vertical":
+            frameW = superView.frame.width
+            frameH = isFinalPosition ? superView.frame.height : 0
+            break
+        case "horizontal":
+            frameW = isFinalPosition ? superView.frame.width : 0
+            frameH = superView.frame.height
+            break
+        default: // diagonal
+            frameW = superView.frame.width
+            frameH = superView.frame.height
+            originX = isFinalPosition ? 0 : -frameW
+            originY = isFinalPosition ? 0 : -frameH
+            
+            if (firstBtn.center.x > middleBtn.center.x) && !isFinalPosition
+            {
+                originY = frameH
+            }
+        }
+        
+        return CGRect(x: originX, y: originY, width: frameW, height: frameH)
     }
 }
